@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import emojipedia from "./Data";
+import Card from "./component";
+import "./App.css";
+
+
+function cardData(emojipedia) {
+  return (
+
+    <Card
+      key={emojipedia.key}
+      emoji={emojipedia.emoji}
+      name={emojipedia.name}
+      meaning={emojipedia.meaning}
+
+    />
+
+
+
+  )
+};
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    <div>
+      <h1>
+        <span>Emojipedia</span>
+      </h1>
+      <dl className="dictionary">{emojipedia.map(cardData)}</dl>
 
+    </div>
+
+  )
+};
 export default App;
